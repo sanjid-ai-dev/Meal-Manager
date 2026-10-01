@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siaan's Meal Managment</title>
-    <meta name="description" content="A meal management application to track monthly deposits, total meals, expenses, and per-person meal rates with PDF export.">
-    <meta property="og:title" content="Siaan's Meal Managment">
-    <meta property="og:description" content="A meal management application to track monthly deposits, total meals, expenses, and per-person meal rates with PDF export.">
+    <title>MealMate — Your Meal Companion</title>
+    <meta name="description" content="MealMate — Your Meal Companion. Track monthly deposits, total meals, expenses, and per-person meal rates with PDF export.">
+    <meta property="og:title" content="MealMate — Your Meal Companion">
+    <meta property="og:description" content="MealMate — Your Meal Companion. Track monthly deposits, total meals, expenses, and per-person meal rates with PDF export.">
+    <link rel="icon" type="image/svg+xml" href="assets/mealmate-logo.svg">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="style/home.css">
 </head>
 <body>
 
     <div class="metabody" id="metabody" data-walkPosition="0">
+        <div class="home-brand-header">
+            <img src="./assets/mealmate-logo.svg" alt="MealMate — Your Meal Companion" class="home-brand-logo" referrerPolicy="no-referrer">
+        </div>
+
         <div class="walkthrough-head">
             <div class="wt"></div>
             <div class="wtline"></div>
@@ -27,7 +32,7 @@
             
         </div>
         <div id="Tutorial">
-            <img src="./assets/Tutorial.svg" alt="" id="Tutorial-img">
+            <img src="./assets/Tutorial.svg" alt="MealMate Tutorial" id="Tutorial-img">
             <br/>
             <button class="tut-button" onclick="chartCreate()">
                 Create Meal Chart

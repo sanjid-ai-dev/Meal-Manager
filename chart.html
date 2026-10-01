@@ -3,114 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Siaan's Meal Managment</title>
+    <title>MealMate — Your Meal Companion</title>
+    <link rel="icon" type="image/svg+xml" href="assets/mealmate-logo.svg">
     <link rel="stylesheet" href="style/normalize.css">
     <link rel="stylesheet" href="chart.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
-
-    
 </head>
 <body id="full">
-    <h1 class="header">Meal Managment Of December</h1>
-    <div class="detInfo">
-        <div class="info">
-            <b>Manager :</b>
-            &nbsp;
-            <p id="managerName"></p>
-        </div>
-        <div class="info">
-            <b>Meal Rate :</b>
-            &nbsp;
-            <b id="mealRate" style="color:#000;"></b>
-        </div>
-        <div class="info">
-            <b>Date :</b>
-            &nbsp;
-            <p id="manageDate"></p>
-            
-        </div>
-    </div>
-    <div class="chartHouse" id="chartHouse">
-        <div class="s0" id="serialNo">
-            <b>Serial No.</b>
-            
-            
-        </div>
-        <div class="s1" id="name">
-            <b>Name</b>
-            
-        </div>
-        <div class="s2 money" id="deposit">
-            <b>Deposit</b>
-            
-        </div>
-        <div class="s1" id="totalMeal">
-            <b>Total Meal</b>
-            
-        </div>
-        <div class="s1 money topper" id="totalExpense">
-            <b>Total Expense</b>
-            
-        </div>
-        <div class="s1 money topper" id="personCost">
-            <b>Person Cost</b>
-            
-        </div>
-        <div class="s2 money" id="managerRec">
-            <b>Manager Recieves</b>
-            
-        </div>
-        <div class="s2 money" id="managerGra">
-            <b>Manager Gives</b>
+    <!-- Top Bar Navigation (Hidden in PDF) -->
+    <header class="topbar no-print">
+        <a href="index.html" class="brand-lockup" aria-label="MealMate Home">
+            <img src="./assets/mealmate-logo.svg" alt="MealMate" class="topbar-logo" referrerPolicy="no-referrer">
+            <span class="brand-wordmark"><span class="word-meal">Meal</span><span class="word-mate">Mate</span></span>
+        </a>
 
+        <div class="topbar-center">
+            <label for="chartSwitcher" class="switcher-label">মাসের চার্ট:</label>
+            <select id="chartSwitcher" class="chart-switcher" onchange="switchChart(this.value)"></select>
+            <a href="index.html" class="topbar-link">+ নতুন মাস যোগ করুন</a>
         </div>
-        <button onclick="snap()">
-            <img width="100%" height="100%" src="https://img.icons8.com/ios-filled/100/ffffff/ellipsis.png" alt="ellipsis"/>
-            
-        </button>
-    </div>
-    <div class="creatorHouse">
-        <input type="number" name="" id="serialTaker" class="s0">
-        <input type="text" name="" id="nameTaker" class="s1">
-        <input type="number" name="" id="depositTaker" class="s2">
-        <input type="number" name="" id="mealTaker" class="s1">
-        <input type="number" name="" id="expenseTaker" class="s1">
-        <input class="s1 resulted" id="personTotal" disabled></input>
-        <span class="s2"></span>
-        <span class="s2"></span>
-        <button id="adder" onclick="putData()">
-            Add item
-        </button>
-        
-    </div>
-        <button id="printButton">
-            <img class="" src="assets/pdf.svg" alt="save">
-        </button>
-    
-    <!-- <script src="js/h2svg.js"></script> -->
+
+        <div class="topbar-actions">
+            <span id="saveStatus" class="save-status">Auto-saved</span>
+            <button type="button" id="printButtonTop" class="btn-primary" onclick="printPDF()">
+                PDF ডাউনলোড করুন
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container" id="printableArea">
+        <!-- Dynamic Report Header -->
+        <section class="report-header">
+            <div class="report-brand-row">
+                <img src="./assets/mealmate-logo.svg" alt="MealMate — Your Meal Companion" class="report-logo" referrerPolicy="no-referrer">
+                <div class="report-title-block">
+                    <h1 class="header" id="dynamicHeader">MealMate · December</h1>
+                    <p class="report-tagline">MealMate — Your Meal Companion</p>
+                </div>
+            </div>
+            <div class="detInfo">
+                <div class="info">
+                    <b>Manager (ম্যানেজার):</b>
+                    <span id="managerName" class="info-val"></span>
+                    <button type="button" class="inline-edit-btn no-print" onclick="toggleManagerEdit()" title="ম্যানেজারের নাম পরিবর্তন করুন">Edit</button>
+                </div>
+                <div class="info">
+                    <b>Meal Rate (মিল রেট):</b>
+                    <strong id="mealRate" class="info-val highlight-rate">0.00/-</strong>
+                </div>
+                <div class="info">
+                    <b>Month &amp; Year (মাস ও বছর):</b>
+                    <span id="manageDate" class="info-val"></span>
+                </div>
+            </div>
+
+            <!-- Inline Manager & Expense Quick Editor (Hidden by default, no-print) -->
+            <div id="managerEditBox" class="manager-edit-box no-print" style="display: none;">
+                <div class="manager-edit-fields">
+                    <div>
+                        <label for="editManagerInput">Manager Name:</label>
+                        <input type="text" id="editManagerInput" placeholder="Manager Name">
+                    </div>
+                    <div>
+                        <label for="editMonthSelect">Month:</label>
+                        <select id="editMonthSelect">
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="editYearInput">Year:</label>
+                        <input type="number" id="editYearInput" min="1900" max="2099">
+                    </div>
+                    <div class="manager-edit-actions">
+                        <button type="button" class="btn-save-small" onclick="saveManagerDetails()">সেভ করুন</button>
+                        <button type="button" class="btn-cancel-small" onclick="toggleManagerEdit()">বাতিল</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Total Summary & Cash in Hand Section -->
+        <section class="summary-grid" aria-label="Monthly Financial Summary">
+            <div class="summary-item">
+                <span class="summary-label">মোট মেম্বার (Members)</span>
+                <strong class="summary-value" id="sumMembers">0 জন</strong>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">মোট জমা টাকা (Total Deposit)</span>
+                <strong class="summary-value" id="sumDeposit">0/-</strong>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">মোট মিল (Total Meals)</span>
+                <strong class="summary-value" id="sumMeals">0</strong>
+            </div>
+            <div class="summary-item">
+                <span class="summary-label">মোট বাজার খরচ (Total Expense)</span>
+                <strong class="summary-value" id="sumExpense">0/-</strong>
+            </div>
+            <div class="summary-item summary-cash" id="cashCard">
+                <span class="summary-label" id="cashLabel">ক্যাশ ইন হ্যান্ড (Cash in Hand)</span>
+                <strong class="summary-value" id="sumCashInHand">0/-</strong>
+                <span class="summary-subtext" id="cashStatusText">জমা − মোট খরচ</span>
+            </div>
+        </section>
+
+        <!-- Member Input / Edit Form (Hidden in PDF) -->
+        <section class="creator-section no-print" aria-label="Add or Edit Member">
+            <div class="creator-header">
+                <h2 class="creator-title" id="formModeTitle">নতুন মেম্বার ও বাজার খরচ যোগ করুন (Add / Update Entry)</h2>
+                <div class="expense-quick-box">
+                    <label for="expenseTaker">মাসের মোট বাজার খরচ (Total Expense ৳):</label>
+                    <div class="expense-input-group">
+                        <input type="number" id="expenseTaker" placeholder="যেমন: 12500" min="0" step="any" oninput="handleExpenseChange()">
+                    </div>
+                </div>
+            </div>
+
+            <div class="creatorHouse">
+                <div class="field-group field-serial">
+                    <label for="serialTaker">ক্রমিক (SL)</label>
+                    <input type="number" id="serialTaker" placeholder="Auto" readonly>
+                </div>
+                <div class="field-group field-name">
+                    <label for="nameTaker">মেম্বারের নাম (Name) *</label>
+                    <input type="text" id="nameTaker" placeholder="নাম লিখুন">
+                </div>
+                <div class="field-group field-deposit">
+                    <label for="depositTaker">জমা টাকা (Deposit ৳) *</label>
+                    <input type="number" id="depositTaker" placeholder="যেমন: 2500" min="0" step="any">
+                </div>
+                <div class="field-group field-meal">
+                    <label for="mealTaker">মোট মিল (Total Meal) *</label>
+                    <input type="number" id="mealTaker" placeholder="যেমন: 45" min="0" step="any">
+                </div>
+                <div class="field-group field-total">
+                    <label for="personTotal">মোট মিল খরচ (Total Cost)</label>
+                    <input id="personTotal" class="resulted" value="0/-" disabled>
+                </div>
+                <div class="field-actions">
+                    <button type="button" id="adder" onclick="putData()">
+                        + মেম্বার যোগ করুন (Add)
+                    </button>
+                    <button type="button" id="cancelEditBtn" class="btn-cancel-edit" onclick="cancelEdit()" style="display: none;">
+                        বাতিল (Cancel)
+                    </button>
+                </div>
+            </div>
+            <p id="validationMsg" class="validation-msg" role="alert"></p>
+        </section>
+
+        <!-- Responsive Meal Chart Table -->
+        <section class="table-section">
+            <div class="table-responsive">
+                <table class="meal-table" id="chartHouse">
+                    <thead>
+                        <tr>
+                            <th class="col-sl">Serial No.<br><span class="th-bn">ক্রমিক</span></th>
+                            <th class="col-name">Name<br><span class="th-bn">নাম</span></th>
+                            <th class="col-num">Deposit<br><span class="th-bn">জমা টাকা</span></th>
+                            <th class="col-num">Total Meal<br><span class="th-bn">মোট মিল</span></th>
+                            <th class="col-num">Person Cost<br><span class="th-bn">মিল খরচ</span></th>
+                            <th class="col-num">Manager Receives<br><span class="th-bn">ম্যানেজার পাবেন</span></th>
+                            <th class="col-num">Manager Gives<br><span class="th-bn">ম্যানেজার দেবেন</span></th>
+                            <th class="col-actions no-print">Actions<br><span class="th-bn">এডিট / ডিলিট</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="mealTableBody">
+                        <!-- Dynamically populated rows -->
+                    </tbody>
+                    <tfoot id="mealTableFoot">
+                        <!-- Dynamically populated summary footer row -->
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- Legacy hidden containers kept for DOM compatibility if referenced -->
+        <div style="display: none;" aria-hidden="true">
+            <div id="serialNo"></div>
+            <div id="name"></div>
+            <div id="deposit"></div>
+            <div id="totalMeal"></div>
+            <div id="totalExpense"></div>
+            <div id="personCost"></div>
+            <div id="managerRec"></div>
+            <div id="managerGra"></div>
+        </div>
+    </main>
+
+    <!-- Floating PDF Download Button (Hidden in PDF) -->
+    <button id="printButton" class="no-print" title="PDF রিপোর্ট ডাউনলোড করুন" onclick="printPDF()">
+        <img src="assets/pdf.svg" alt="Download PDF">
+    </button>
+
     <script src="js/main.js" async defer></script>
     <script src="js/data.js"></script>
     <script src="js/chart.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/html2pdf.js"></script> -->
-    
-    <script>
-        function printPDF() {
-          const element = document.body;  // This will capture the entire body of the page
-          const options = {
-            margin: 0.5,
-            filename: 'Meal.pdf',
-            image: { type: 'jpeg', quality: 1.0 },
-            html2canvas: { scale: 2 },
-            pages: 'All',
-            jsPDF: { unit: 'in', format: 'Tabloid', orientation: 'landscape' }
-          };
-          html2pdf().from(element).set(options).save();
-        }
-        
-        // Optionally, you can call this function on a button click
-        document.getElementById('printButton').addEventListener('click', printPDF);
-      </script>
-      
-    
 </body>
 </html>
