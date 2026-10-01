@@ -21,7 +21,12 @@ var personTotalPlace = document.getElementById('personTotal');
 
 
 window.addEventListener("load", (event) => {
-    var storedData = JSON.parse(localStorage.getItem('evilID'));
+    var storedData = JSON.parse(localStorage.getItem('evilID')) || {
+        managerName: 'Manager',
+        month: 'December',
+        year: new Date().getFullYear(),
+        newData: true
+    };
     if (storedData.newData) {
         managerNamePlace.innerHTML = storedData.managerName;
         manageDatePlace.innerHTML = `${storedData.month} of ${storedData.year}`;

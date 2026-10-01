@@ -1,0 +1,8 @@
+{
+  "name": "Siaan's Meal Managment",
+  "description": "A meal management application to track monthly deposits, total meals, expenses, and per-person meal rates with PDF export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
