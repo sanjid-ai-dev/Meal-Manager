@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quattrocento:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quattrocento:wght@400;700&display=swap");
+body {
+  background-image: url("./assets/layered-waves-haikei_1.svg");
+  background-color: #dedede;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+body {
+  overflow-x: hidden;
+  background-attachment: fixed;
+}
+
+.header {
+  margin: 0;
+  padding: 14px 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.detInfo {
+  width: 97%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.detInfo .info {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  color: #1B262C;
+}
+.detInfo .info b {
+  display: inline-block;
+}
+.detInfo .info p {
+  display: inline-block;
+}
+
+.chartHouse, .creatorHouse {
+  width: 97%;
+  padding: 24px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.chartHouse div, .chartHouse input, .creatorHouse div, .creatorHouse input {
+  padding-bottom: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+.chartHouse div span, .chartHouse div b, .chartHouse input span, .chartHouse input b, .creatorHouse div span, .creatorHouse div b, .creatorHouse input span, .creatorHouse input b {
+  display: block;
+  text-align: center;
+  position: relative;
+  font-size: 14px;
+  color: #1B262C;
+  padding: 16px 0;
+}
+.chartHouse div span:last-of-type::after, .chartHouse div b:last-of-type::after, .chartHouse input span:last-of-type::after, .chartHouse input b:last-of-type::after, .creatorHouse div span:last-of-type::after, .creatorHouse div b:last-of-type::after, .creatorHouse input span:last-of-type::after, .creatorHouse input b:last-of-type::after {
+  display: none;
+}
+.chartHouse div span, .chartHouse input span, .creatorHouse div span, .creatorHouse input span {
+  font-weight: 600;
+}
+.chartHouse div span::after, .chartHouse input span::after, .creatorHouse div span::after, .creatorHouse input span::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1.5px;
+  width: 40%;
+  background-color: #d9d9d9;
+  border-radius: 50px;
+}
+.chartHouse .topper, .creatorHouse .topper {
+  align-self: flex-start;
+  justify-self: self-start;
+}
+.chartHouse .money span, .creatorHouse .money span {
+  font-weight: 800;
+  color: #000;
+}
+.chartHouse .s0, .creatorHouse .s0 {
+  width: 90px;
+}
+.chartHouse .s1, .creatorHouse .s1 {
+  width: 160px;
+}
+.chartHouse .s2, .creatorHouse .s2 {
+  width: 200px;
+}
+.chartHouse .s3, .creatorHouse .s3 {
+  width: 240px;
+}
+.chartHouse button, .creatorHouse button {
+  height: 54px;
+  background-color: #0F4C75;
+  font-size: 18px;
+  width: 140px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.chartHouse button img, .creatorHouse button img {
+  height: 18px;
+  width: 18px;
+}
+.chartHouse *, .creatorHouse * {
+  border-radius: 10px;
+}
+
+.creatorHouse input {
+  height: 54px;
+  margin: 0;
+  padding: 0 14px;
+  border: none;
+  outline: none;
+}
+.creatorHouse .s0 {
+  width: 62px;
+}
+.creatorHouse .s1 {
+  width: 132px;
+}
+.creatorHouse .s2 {
+  width: 172px;
+}
+.creatorHouse .s3 {
+  width: 212px;
+}
+.creatorHouse button {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  background-color: #1B262C;
+}
+.creatorHouse span.s2 {
+  width: 200px !important;
+}
+.creatorHouse span.s1 {
+  width: 160px !important;
+}
+.creatorHouse .resulted {
+  background-color: rgba(255, 255, 255, 0.3764705882);
+}
+.creatorHouse span.s0 {
+  width: 90px !important;
+}
+.creatorHouse #serialTaker {
+  background-color: rgba(255, 255, 255, 0.3764705882);
+}
+.creatorHouse #serialTaker:focus {
+  background-color: #fff;
+}
+.creatorHouse #serialTaker:hover {
+  background-color: #fff;
+}
+
+#printButton {
+  width: 55px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -60%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+#printButton img {
+  width: 100%;
+  display: flex;
+  border-radius: 50px;
+  box-shadow: 0px 5.5px 15px rgba(0, 0, 0, 0.501);
+}
+#printButton img:hover {
+  transition: all 0.2s ease-in-out;
+  box-shadow: none;
+}/*# sourceMappingURL=chart.css.map */

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siaan's Meal Managment</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="chart.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    
+</head>
+<body id="full">
+    <h1 class="header">Meal Managment Of December</h1>
+    <div class="detInfo">
+        <div class="info">
+            <b>Manager :</b>
+            &nbsp;
+            <p id="managerName"></p>
+        </div>
+        <div class="info">
+            <b>Meal Rate :</b>
+            &nbsp;
+            <b id="mealRate" style="color:#000;"></b>
+        </div>
+        <div class="info">
+            <b>Date :</b>
+            &nbsp;
+            <p id="manageDate"></p>
+            
+        </div>
+    </div>
+    <div class="chartHouse" id="chartHouse">
+        <div class="s0" id="serialNo">
+            <b>Serial No.</b>
+            
+            
+        </div>
+        <div class="s1" id="name">
+            <b>Name</b>
+            
+        </div>
+        <div class="s2 money" id="deposit">
+            <b>Deposit</b>
+            
+        </div>
+        <div class="s1" id="totalMeal">
+            <b>Total Meal</b>
+            
+        </div>
+        <div class="s1 money topper" id="totalExpense">
+            <b>Total Expense</b>
+            
+        </div>
+        <div class="s1 money topper" id="personCost">
+            <b>Person Cost</b>
+            
+        </div>
+        <div class="s2 money" id="managerRec">
+            <b>Manager Recieves</b>
+            
+        </div>
+        <div class="s2 money" id="managerGra">
+            <b>Manager Gives</b>
+
+        </div>
+        <button onclick="snap()">
+            <img width="100%" height="100%" src="https://img.icons8.com/ios-filled/100/ffffff/ellipsis.png" alt="ellipsis"/>
+            
+        </button>
+    </div>
+    <div class="creatorHouse">
+        <input type="number" name="" id="serialTaker" class="s0">
+        <input type="text" name="" id="nameTaker" class="s1">
+        <input type="number" name="" id="depositTaker" class="s2">
+        <input type="number" name="" id="mealTaker" class="s1">
+        <input type="number" name="" id="expenseTaker" class="s1">
+        <input class="s1 resulted" id="personTotal" disabled></input>
+        <span class="s2"></span>
+        <span class="s2"></span>
+        <button id="adder" onclick="putData()">
+            Add item
+        </button>
+        
+    </div>
+        <button id="printButton">
+            <img class="" src="assets/pdf.svg" alt="save">
+        </button>
+    
+    <!-- <script src="js/h2svg.js"></script> -->
+    <script src="js/main.js" async defer></script>
+    <script src="js/data.js"></script>
+    <script src="js/chart.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/html2pdf.js"></script> -->
+    
+    <script>
+        function printPDF() {
+          const element = document.body;  // This will capture the entire body of the page
+          const options = {
+            margin: 0.5,
+            filename: 'Meal.pdf',
+            image: { type: 'jpeg', quality: 1.0 },
+            html2canvas: { scale: 2 },
+            pages: 'All',
+            jsPDF: { unit: 'in', format: 'Tabloid', orientation: 'landscape' }
+          };
+          html2pdf().from(element).set(options).save();
+        }
+        
+        // Optionally, you can call this function on a button click
+        document.getElementById('printButton').addEventListener('click', printPDF);
+      </script>
+      
+    
+</body>
+</html>

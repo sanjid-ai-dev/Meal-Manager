@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Karma:wght@300;400;500;600;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Quattrocento:wght@400;700&display=swap");
+body {
+  background-image: url("../assets/layered-waves-haikei_1.svg");
+  background-color: #dedede;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  position: relative;
+}/*# sourceMappingURL=style.css.map */

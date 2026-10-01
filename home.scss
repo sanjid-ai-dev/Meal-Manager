@@ -1,0 +1,196 @@
+@import 'res';
+@import 'style';
+body{
+    &::before{
+        content: '';
+        background-image: url("./assets/circle-scatter-haikei.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+}
+.metabody{
+    z-index: 5;
+    // background-color: pink;
+    height: 90%;
+    width: 60%;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.walkthrough-head{
+    width: 100%;
+    height: 94px;
+    background-color: #dfdfdf60;
+    border-radius: 10px;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    box-shadow: 2px 0px 5px #00000040;
+
+}
+.walkthrough-body{
+    width: 100%;
+    height: 460px;
+    background-color: #dfdfdf;
+    border-radius: 10px;
+
+    box-shadow: 2px 0px 5px #00000040;
+
+    img{
+        height: 200px;
+        width: 200px;
+        margin: 0 auto;
+        display: block;
+        margin-top: 0px;
+    }
+    h1{
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        display: block;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 800;
+
+    }
+}
+.valider-a{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    height: 100px;
+    
+    div{
+        label{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        input,select{
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 17px;
+            padding: 6px 6px;
+            margin: 0;
+            width: 240px;
+            border: none;
+            outline: none;
+            margin-top: 8px;
+            // box-shadow:0px 3px 5px #34343434;
+            
+        }
+        input{
+            padding: 8px 6px;
+        }
+    }
+}
+.valA{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: row-reverse;
+    .valider-a-butt{
+        margin: 0;
+        margin-top: 32px;
+    }
+}
+.valider-a-butt{
+    border: none;
+    outline:none;
+    background-color: $prim;
+    font-family: 'Poppins', sans-serif;
+    color: #dfdfdf;
+    font-size: 18px;
+    text-align: center;
+    width: 140px;
+    padding:12px 0;
+    display: block;
+    margin: 0 auto;
+    margin-top: 32px;
+    cursor: pointer;
+}
+.skip{
+    background-color: transparent;
+    color: $dark;
+    border: solid 2px $dark;
+}
+.inputter{
+    width: 100%;
+}
+#managerInp{
+    
+    width: 324px;
+    box-shadow: 0px 2px 3px #43434357;
+    display: block;
+    margin: 0 auto;
+    margin-top: 34px;
+}
+#Tutorial{
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+    width: 120%;
+
+    #Tutorial-img{
+        width: 100%;
+    }
+    .tut-button{
+        border: none;
+        outline:none;
+        background-color: $dark;
+        font-family: 'Poppins', sans-serif;
+        color: #dfdfdf;
+        font-size: 18px;
+        text-align: center;
+        width: 220px;
+        padding:12px 0;
+        display: block;
+        margin: 0 auto;
+        margin-top: 32px;
+        cursor: pointer;
+    }
+
+}
+.walkthrough-head{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    .wt{
+        background-color: $dark;
+        height: 25px;
+        width: 25px;
+        border-radius: 500px;
+    }
+    .wtline{
+        background-color: $dark;
+        height: 3.5px;
+        width: calc(100%/4);
+        
+    }
+    .active{
+        background-color: $prim;
+    }
+}
