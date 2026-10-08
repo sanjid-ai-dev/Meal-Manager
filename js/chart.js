@@ -98,7 +98,7 @@ function renderAll() {
   const monthLabel = chart.month || 'December';
   const yearLabel = chart.year || new Date().getFullYear();
   if (dynamicHeader) {
-    dynamicHeader.textContent = `MealMate — ${monthLabel} ${yearLabel}`;
+    dynamicHeader.textContent = `Meal Management of ${monthLabel} ${yearLabel}`;
   }
   document.title = `MealMate — ${monthLabel} ${yearLabel}`;
   if (managerNamePlace) {
@@ -446,31 +446,68 @@ async function saveManagerDetails() {
   await persistChanges();
 }
 
-function printPDF() {
+async function printPDF() {
   const chart = getActiveChart();
   const element = document.getElementById('printableArea') || document.body;
   const filename = `MealMate_${chart.month}_${chart.year}.pdf`;
 
+  if (typeof hydrateMealMateLogos === 'function') {
+    await hydrateMealMateLogos();
+  }
+
+  const prevScrollY = window.scrollY;
+  window.scrollTo(0, 0);
   document.body.classList.add('pdf-export-mode');
 
+  // Allow layout reflow into the 1080px desktop PDF container
+  await new Promise((r) => setTimeout(r, 120));
+
+  const contentWidth = element.offsetWidth || 1040;
+  const contentHeight = element.offsetHeight || 600;
+
+  // Calculate single-page dimensions in points (pt) so content NEVER splits across 2 pages
+  const pdfWidthPt = 842; // Standard A4 Landscape width in pt
+  const marginPt = 16;
+  const usableWidthPt = pdfWidthPt - marginPt * 2;
+  const requiredHeightPt = Math.ceil((contentHeight / contentWidth) * usableWidthPt) + marginPt * 2 + 24;
+  const pdfHeightPt = Math.max(595, requiredHeightPt);
+
   const options = {
-    margin: 0.35,
+    margin: marginPt,
     filename: filename,
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, useCORS: true },
-    jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+    html2canvas: {
+      scale: 2,
+      useCORS: true,
+      scrollX: 0,
+      scrollY: 0,
+      windowWidth: 1080,
+      width: contentWidth,
+      height: contentHeight
+    },
+    jsPDF: {
+      unit: 'pt',
+      format: [pdfWidthPt, pdfHeightPt],
+      orientation: pdfWidthPt >= pdfHeightPt ? 'landscape' : 'portrait'
+    }
   };
 
-  html2pdf()
-    .from(element)
-    .set(options)
-    .save()
-    .then(() => {
-      document.body.classList.remove('pdf-export-mode');
-    })
-    .catch(() => {
-      document.body.classList.remove('pdf-export-mode');
-    });
+  try {
+    await html2pdf()
+      .set(options)
+      .from(element)
+      .toPdf()
+      .get('pdf')
+      .then((pdf) => {
+        while (pdf.internal.getNumberOfPages() > 1) {
+          pdf.deletePage(pdf.internal.getNumberOfPages());
+        }
+      })
+      .save();
+  } finally {
+    document.body.classList.remove('pdf-export-mode');
+    window.scrollTo(0, prevScrollY);
+  }
 }
 
 window.addEventListener('keydown', function (event) {

@@ -110,3 +110,37 @@ async function pushStoreToServer(store) {
     // Ignore network error, localStorage has it
   }
 }
+
+async function hydrateMealMateLogos() {
+  try {
+    const res = await fetch('./assets/mealmate-logo.svg');
+    if (!res.ok) return;
+    const svgText = await res.text();
+    const svgBlob = new Blob([svgText], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(svgBlob);
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+      img.src = url;
+    });
+    const canvas = document.createElement('canvas');
+    canvas.width = 1170;
+    canvas.height = 870;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    URL.revokeObjectURL(url);
+    const pngDataUrl = canvas.toDataURL('image/png');
+    const logoEls = document.querySelectorAll('.report-logo, .topbar-logo, .home-brand-logo');
+    logoEls.forEach((el) => {
+      el.src = pngDataUrl;
+    });
+  } catch (e) {
+    // Keep default SVG src if canvas conversion fails
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  hydrateMealMateLogos();
+});

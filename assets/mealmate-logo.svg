@@ -1,89 +1,135 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="100%" height="100%">
-  <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&amp;display=swap');
-      .mm-meal { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 132px; fill: #182B3A; letter-spacing: -2px; }
-      .mm-mate { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 132px; fill: #2B8A3E; letter-spacing: -2px; }
-      .mm-sub { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 27px; fill: #182B3A; letter-spacing: 5.5px; }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="110 230 780 580" width="780" height="580">
+  <!-- 1. Green Circular Crescent Arc (Right Side) -->
+  <path d="M 520 278 C 578 232, 672 252, 712 325 C 735 367, 730 420, 697 458 C 714 416, 716 367, 695 328 C 659 264, 576 247, 520 278 Z" fill="#288535"/>
 
-  <!-- Green circular arc around right side -->
-  <path d="M 412 132 A 168 168 0 0 1 564 316" fill="none" stroke="#2B8A3E" stroke-width="14" stroke-linecap="round"/>
+  <!-- 2. Steaming Food Cloche / Platter -->
+  <!-- Left Steam Wave -->
+  <path d="M 571 367 C 561 353, 563 341, 571 330 C 576 323, 578 318, 576 313 C 584 321, 583 333, 576 343 C 571 350, 570 358, 571 367 Z" fill="#288535"/>
+  <!-- Middle Steam Wave -->
+  <path d="M 595 361 C 585 344, 588 329, 597 316 C 603 307, 604 301, 598 295 C 610 304, 610 319, 602 332 C 596 341, 594 350, 595 361 Z" fill="#288535"/>
+  <!-- Right Steam Wave -->
+  <path d="M 620 367 C 610 353, 612 341, 620 330 C 625 323, 627 318, 625 313 C 633 321, 632 333, 625 343 C 620 350, 619 358, 620 367 Z" fill="#288535"/>
+  <!-- Cloche Top Knob -->
+  <ellipse cx="597.5" cy="372" rx="12.5" ry="9.5" fill="#288535"/>
+  <!-- Cloche Dome -->
+  <path d="M 529 438 C 530 395, 559 375, 597.5 375 C 636 375, 665 395, 666 438 Z" fill="#288535"/>
+  <!-- White Dome Highlight -->
+  <path d="M 620 393 C 633 400, 642 412, 645 427 C 638 415, 629 403, 620 393 Z" fill="#FFFFFF"/>
+  <!-- Cloche Base Platter -->
+  <rect x="515" y="443" width="165" height="17" rx="8.5" fill="#288535"/>
 
-  <!-- Steaming Cloche / Food Platter above laptop -->
-  <g transform="translate(405, 162)">
-    <!-- Steam waves -->
-    <path d="M 52 52 C 44 38, 62 24, 52 8 C 64 22, 50 38, 58 52 Z" fill="#2B8A3E"/>
-    <path d="M 73 45 C 63 28, 84 12, 72 -8 C 88 10, 71 28, 80 45 Z" fill="#2B8A3E"/>
-    <path d="M 94 52 C 86 38, 104 24, 94 8 C 106 22, 92 38, 100 52 Z" fill="#2B8A3E"/>
-    <!-- Cloche handle -->
-    <ellipse cx="74" cy="62" rx="11" ry="8" fill="#2B8A3E"/>
-    <!-- Cloche dome -->
-    <path d="M 16 118 C 16 74, 42 64, 74 64 C 106 64, 132 74, 132 118 Z" fill="#2B8A3E"/>
-    <!-- Dome highlight -->
-    <path d="M 92 78 A 42 42 0 0 1 114 108" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-    <!-- Cloche base platter -->
-    <rect x="6" y="122" width="136" height="14" rx="7" fill="#2B8A3E"/>
-  </g>
+  <!-- 3. Person (Skin: Face, Ear, Neck, Forearm/Hand) -->
+  <!-- Face, Ear & Neck -->
+  <path d="M 384 369 L 430 305 L 492 323 C 492 333, 488 342, 485 347 C 485 352, 488 357, 487 361 C 485 366, 479 367, 477 370 C 476 376, 474 385, 469 390 C 462 396, 444 391, 426 389 L 417 416 C 397 414, 380 400, 371 383 Z" fill="#FAD09C"/>
+  <!-- Hair (Dark Navy) -->
+  <path d="M 384 369 C 385 352, 378 336, 379 318 C 380 295, 394 278, 413 276 C 424 263, 443 259, 461 266 C 476 272, 492 281, 507 277 C 512 287, 508 299, 499 305 C 507 306, 513 305, 516 303 C 518 315, 509 326, 497 326 C 486 326, 475 320, 467 316 C 460 328, 453 338, 446 346 L 442 346 C 443 334, 439 325, 431 326 C 422 327, 419 340, 424 350 C 426 355, 431 357, 434 357 C 422 365, 402 369, 384 369 Z" fill="#172A3A"/>
+  <!-- Shirt / Torso (Dark Navy) -->
+  <path d="M 371 383 C 380 401, 396 415, 417 416 L 419 403 C 446 410, 460 434, 478 515 L 413 521 L 385 524 L 443 527 L 443 567 C 405 568, 368 558, 338 541 C 346 523, 347 501, 338 481 C 328 477, 316 483, 306 493 C 300 482, 292 474, 283 468 C 294 422, 328 391, 371 383 Z" fill="#172A3A"/>
+  <!-- Forearm & Hand Typing -->
+  <path d="M 443 527 L 483 522 C 495 512, 508 502, 520 503 C 532 504, 543 514, 546 526 C 542 531, 536 533, 531 531 L 535 524 L 532 522 L 525 535 C 521 538, 517 540, 514 540 L 521 532 L 518 530 L 509 544 C 498 547, 484 549, 472 554 L 443 567 Z" fill="#FAD09C"/>
+  <!-- Laptop Base Wedge Under Hand -->
+  <path d="M 443 567 L 474 553 C 490 547, 508 546, 524 536 L 535 526 L 546 526 L 528 566 C 498 570, 468 570, 443 567 Z" fill="#172A3A"/>
 
-  <!-- Person with Laptop -->
+  <!-- 4. Green Leaves & Bottom Swoosh -->
+  <!-- Left Leaf -->
+  <path d="M 301 558 C 252 548, 236 509, 229 461 C 263 464, 294 486, 297 517 C 292 527, 291 538, 294 548 L 263 503 C 274 524, 286 543, 301 558 Z" fill="#288535"/>
+  <!-- Right Leaf -->
+  <path d="M 305 557 C 297 535, 304 507, 332 489 C 340 511, 336 538, 314 554 L 321 519 C 315 532, 309 545, 305 557 Z" fill="#288535"/>
+  <!-- Bottom Green Swoosh -->
+  <path d="M 295 555 C 344 595, 436 602, 525 578 L 525 575 C 446 584, 374 576, 331 548 L 312 558 Z" fill="#288535"/>
+
+  <!-- 5. Laptop Screen (Dark Navy) -->
+  <path d="M 527 580 L 583 477 C 586 471, 592 468, 600 468 L 726 467 C 734 467, 738 471, 734 478 L 689 556 C 685 563, 678 567, 669 568 L 527 580 Z" fill="#172A3A"/>
+  <!-- White Laptop Center Dot -->
+  <ellipse cx="642" cy="520" rx="9.5" ry="9" transform="rotate(-12 642 520)" fill="#FFFFFF"/>
+
+  <!-- 6. Exact Rounded Vector Wordmark: "Meal" (#172A3A) + "Mate" (#288535) -->
+  <!-- Letter M (Navy) -->
+  <path d="M 130 713 L 130 626 C 130 617, 137 611, 146 611 C 153 611, 159 615, 162 621 L 191.5 680 L 221 621 C 224 615, 230 611, 237 611 C 246 611, 253 617, 253 626 L 253 713 C 253 720, 247 725, 240 725 C 233 725, 227 720, 227 713 L 227 658 L 203 702 C 200 707, 196 710, 191.5 710 C 187 710, 183 707, 180 702 L 156 658 L 156 713 C 156 720, 150 725, 143 725 C 136 725, 130 720, 130 713 Z" fill="#172A3A"/>
+
+  <!-- Letter e (Navy) -->
+  <path fill-rule="evenodd" d="M 306 639 C 332 639, 349 657, 349 681 C 349 687, 345 691, 339 691 L 289 691 C 291 701, 299 707, 310 707 C 317 707, 323 705, 328 702 C 333 699, 339 700, 343 705 C 346 710, 345 716, 339 720 C 330 725, 319 727, 308 727 C 280 727, 262 709, 262 683 C 262 657, 280 639, 306 639 Z M 289 674 L 323 674 C 322 664, 315 658, 306 658 C 297 658, 290 664, 289 674 Z" fill="#172A3A"/>
+
+  <!-- Letter a (Navy) -->
+  <path fill-rule="evenodd" d="M 421 649 C 421 643, 426 639, 434 639 C 442 639, 448 644, 448 652 L 448 713 C 448 721, 442 726, 434 726 C 427 726, 422 722, 421 716 C 414 723, 404 727, 393 727 C 371 727, 355 708, 355 683 C 355 658, 371 639, 393 639 C 404 639, 414 643, 421 649 Z M 402 662 C 389 662, 381 671, 381 683 C 381 695, 389 704, 402 704 C 413 704, 421 695, 421 683 C 421 671, 413 662, 402 662 Z" fill="#172A3A"/>
+
+  <!-- Letter l (Navy) -->
+  <rect x="457" y="608" width="28" height="117" rx="11" fill="#172A3A"/>
+
+  <!-- Letter M (Green) -->
+  <path d="M 498 713 L 498 626 C 498 617, 505 611, 514 611 C 521 611, 527 615, 530 621 L 559.5 680 L 589 621 C 592 615, 598 611, 605 611 C 614 611, 621 617, 621 626 L 621 713 C 621 720, 615 725, 608 725 C 601 725, 595 720, 595 713 L 595 658 L 571 702 C 568 707, 564 710, 559.5 710 C 555 710, 551 707, 548 702 L 524 658 L 524 713 C 524 720, 518 725, 511 725 C 504 725, 498 720, 498 713 Z" fill="#288535"/>
+
+  <!-- Letter a (Green) with Embedded Fork & Plate Arc -->
   <g>
-    <!-- Head & Neck (Skin) -->
-    <path d="M 296 226 L 378 176 L 392 198 L 386 218 L 395 232 L 386 240 L 381 262 C 378 272, 366 274, 354 270 L 336 264 L 332 288 L 288 266 Z" fill="#FAD09F"/>
-    <!-- Hair (Dark Navy) -->
-    <path d="M 302 214 C 296 184, 316 154, 344 150 C 356 140, 378 142, 392 156 C 402 158, 412 154, 416 148 C 418 164, 410 178, 400 182 C 410 184, 418 182, 421 178 C 420 194, 406 204, 388 202 C 378 200, 368 192, 360 198 C 354 202, 352 216, 346 220 C 342 210, 336 206, 330 212 C 325 218, 326 228, 330 232 C 322 234, 312 236, 306 238 C 304 228, 304 220, 302 214 Z" fill="#182B3A"/>
-    <!-- Torso / T-Shirt (Dark Navy) -->
-    <path d="M 218 332 C 228 282, 260 256, 292 254 C 306 274, 324 282, 338 272 C 358 284, 372 316, 384 368 L 426 364 L 426 392 L 352 406 L 266 390 C 242 382, 224 362, 218 332 Z" fill="#182B3A"/>
-    <!-- Forearm & Hand typing (Skin) -->
-    <path d="M 352 372 L 404 366 C 416 362, 428 352, 438 358 C 448 364, 452 376, 444 384 L 352 406 Z" fill="#FAD09F"/>
-    <!-- White sleeve accent line -->
-    <path d="M 306 368 L 352 368 L 352 406" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <!-- Green outer body of 'a' -->
+    <path d="M 697 649 C 697 643, 702 639, 710 639 C 718 639, 724 644, 724 652 L 724 713 C 724 721, 718 726, 710 726 C 703 726, 698 722, 697 716 C 690 723, 680 727, 669 727 C 647 727, 630 708, 630 683 C 630 658, 647 639, 669 639 C 680 639, 690 643, 697 649 Z" fill="#288535"/>
+    <!-- White Plate Rim Arcs inside 'a' -->
+    <path d="M 652 683 A 23 23 0 0 1 673 658" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 671 705 A 23 23 0 0 0 696 684" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+    <!-- White Fork angled inside 'a' -->
+    <g transform="translate(673, 686) rotate(36)">
+      <!-- Fork stem extending down-left -->
+      <rect x="-4.2" y="5" width="8.4" height="44" rx="2" fill="#FFFFFF"/>
+      <!-- Fork head base -->
+      <path d="M -12.5 -6 C -12.5 5, 12.5 5, 12.5 -6 L 12.5 -10 L -12.5 -10 Z" fill="#FFFFFF"/>
+      <!-- 4 Fork tines -->
+      <rect x="-12.5" y="-26" width="3.8" height="18" rx="1.8" fill="#FFFFFF"/>
+      <rect x="-5.2" y="-26" width="3.8" height="18" rx="1.8" fill="#FFFFFF"/>
+      <rect x="2.0" y="-26" width="3.8" height="18" rx="1.8" fill="#FFFFFF"/>
+      <rect x="8.8" y="-26" width="3.8" height="18" rx="1.8" fill="#FFFFFF"/>
+    </g>
   </g>
 
-  <!-- Green Leaves & Bottom Swoosh -->
-  <g>
-    <!-- Left larger leaf -->
-    <path d="M 238 390 C 194 382, 182 342, 176 312 C 208 314, 244 338, 238 390 Z" fill="#2B8A3E"/>
-    <!-- Right smaller leaf -->
-    <path d="M 244 394 C 234 366, 248 342, 266 334 C 274 356, 268 382, 244 394 Z" fill="#2B8A3E"/>
-    <!-- Leaf vein detail -->
-    <path d="M 256 356 L 244 394" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
-    <!-- Bottom green swoosh under person -->
-    <path d="M 238 390 C 282 426, 362 432, 426 410 C 366 418, 298 410, 256 382 Z" fill="#2B8A3E"/>
-  </g>
+  <!-- Letter t (Green) -->
+  <path d="M 738 661 L 732 661 C 727 661, 723 656, 723 650 C 723 644, 727 640, 732 640 L 738 640 L 738 625 C 738 618, 744 613, 752 613 C 760 613, 766 618, 766 625 L 766 640 L 775 640 C 780 640, 784 644, 784 650 C 784 656, 780 661, 775 661 L 766 661 L 766 698 C 766 703, 769 705, 774 705 C 779 705, 784 708, 784 715 C 784 722, 778 726, 767 726 C 748 726, 738 716, 738 698 Z" fill="#288535"/>
 
-  <!-- Laptop (Dark Navy) -->
-  <g>
-    <path d="M 424 410 L 472 322 C 475 316, 482 314, 490 314 L 586 314 C 594 314, 598 318, 594 326 L 552 396 C 548 402, 542 404, 534 405 L 424 410 Z" fill="#182B3A"/>
-    <!-- Laptop logo dot -->
-    <circle cx="514" cy="360" r="8" fill="#ffffff"/>
-  </g>
+  <!-- Letter e (Green) -->
+  <path fill-rule="evenodd" d="M 829 639 C 855 639, 872 657, 872 681 C 872 687, 868 691, 862 691 L 812 691 C 814 701, 822 707, 833 707 C 840 707, 846 705, 851 702 C 856 699, 862 700, 866 705 C 869 710, 868 716, 862 720 C 853 725, 842 727, 831 727 C 803 727, 785 709, 785 683 C 785 657, 803 639, 829 639 Z M 812 674 L 846 674 C 845 664, 838 658, 829 658 C 820 658, 813 664, 812 674 Z" fill="#288535"/>
 
-  <!-- Brand Text: MealMate -->
-  <g transform="translate(400, 546)" text-anchor="middle">
-    <text y="0">
-      <tspan class="mm-meal">Meal</tspan><tspan class="mm-mate">Mate</tspan>
-    </text>
-  </g>
+  <!-- 7. Subtitle: "— Your Meal Companion —" (Pure Vector Strokes) -->
+  <rect x="201" y="765" width="49" height="4" rx="2" fill="#288535"/>
+  <rect x="749" y="765" width="49" height="4" rx="2" fill="#288535"/>
 
-  <!-- Negative-space Fork inside the 'a' of Mate -->
-  <g transform="translate(546, 514) rotate(36)">
-    <!-- Fork handle -->
-    <rect x="-4" y="6" width="8" height="36" rx="3" fill="#ffffff"/>
-    <!-- Fork head base -->
-    <path d="M -11 -6 C -11 4, 11 4, 11 -6 L 11 -10 L -11 -10 Z" fill="#ffffff"/>
-    <!-- Fork tines -->
-    <rect x="-11" y="-24" width="3.5" height="16" rx="1.5" fill="#ffffff"/>
-    <rect x="-4.5" y="-24" width="3.5" height="16" rx="1.5" fill="#ffffff"/>
-    <rect x="2" y="-24" width="3.5" height="16" rx="1.5" fill="#ffffff"/>
-    <rect x="8" y="-24" width="3.5" height="16" rx="1.5" fill="#ffffff"/>
-  </g>
+  <g fill="none" stroke="#172A3A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Y -->
+    <path d="M 273 755 L 281 767 L 289 755 M 281 767 L 281 779"/>
+    <!-- o -->
+    <circle cx="304" cy="770" r="8.5"/>
+    <!-- u -->
+    <path d="M 323 762 L 323 772 C 323 776.5, 326 779, 330.5 779 C 335 779, 338 776.5, 338 772 L 338 762"/>
+    <!-- r -->
+    <path d="M 350 779 L 350 762 M 350 767 C 352 763, 355 762, 358 762"/>
 
-  <!-- Tagline: — Your Meal Companion — -->
-  <g transform="translate(400, 608)">
-    <line x1="-260" y1="-9" x2="-212" y2="-9" stroke="#2B8A3E" stroke-width="4" stroke-linecap="round"/>
-    <text x="0" y="0" text-anchor="middle" class="mm-sub">Your Meal Companion</text>
-    <line x1="212" y1="-9" x2="260" y2="-9" stroke="#2B8A3E" stroke-width="4" stroke-linecap="round"/>
+    <!-- M -->
+    <path d="M 386 779 L 386 755 L 397 775 L 408 755 L 408 779"/>
+    <!-- e -->
+    <path d="M 419 770 L 435 770 C 435 765, 431.5 761.5, 427 761.5 C 422.5 761.5, 419 765, 419 770 C 419 775, 422.5 779, 427.5 779 C 431 779, 433.5 777.5, 434.5 776"/>
+    <!-- a -->
+    <circle cx="453" cy="770" r="8.5"/>
+    <path d="M 461.5 761.5 L 461.5 779"/>
+    <!-- l -->
+    <path d="M 474 753 L 474 779"/>
+
+    <!-- C -->
+    <path d="M 518 758 C 515 755.5, 511.5 754.5, 508 755 C 501 756, 497 761.5, 497 767 C 497 773, 501 778, 508 779 C 511.5 779.5, 515 778.5, 518 776"/>
+    <!-- o -->
+    <circle cx="536" cy="770" r="8.5"/>
+    <!-- m -->
+    <path d="M 555 779 L 555 762 M 555 766 C 555 763, 558 761.5, 561.5 761.5 C 565 761.5, 567.5 763.5, 567.5 767 L 567.5 779 M 567.5 766 C 567.5 763, 570.5 761.5, 574 761.5 C 577.5 761.5, 580 763.5, 580 767 L 580 779"/>
+    <!-- p -->
+    <path d="M 592 761.5 L 592 786"/>
+    <circle cx="600.5" cy="770" r="8.5"/>
+    <!-- a -->
+    <circle cx="627" cy="770" r="8.5"/>
+    <path d="M 635.5 761.5 L 635.5 779"/>
+    <!-- n -->
+    <path d="M 648 779 L 648 762 M 648 767 C 648 763.5, 651 761.5, 655 761.5 C 659 761.5, 662 764, 662 768 L 662 779"/>
+    <!-- i -->
+    <path d="M 674 762 L 674 779"/>
+    <circle cx="674" cy="755" r="0.8" fill="#172A3A"/>
+    <!-- o -->
+    <circle cx="693" cy="770" r="8.5"/>
+    <!-- n -->
+    <path d="M 711 779 L 711 762 M 711 767 C 711 763.5, 714 761.5, 718 761.5 C 722 761.5, 725 764, 725 768 L 725 779"/>
   </g>
 </svg>
